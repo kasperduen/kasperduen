@@ -37,8 +37,8 @@ const Home: NextPage = () => {
                   data-aos="zoom-y-out"
                   data-aos-delay="150"
                 >
-                  I build tools and apps that makes life easier for people. As
-                  of 1. march i've joined
+                  I build tools and apps that makes life easier for people. I'm
+                  currently part of
                   <a href="https://www.bankingcircle.com">Banking Circle</a>
                 </p>
               </div>
