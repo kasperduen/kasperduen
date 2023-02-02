@@ -1,10 +1,44 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect } from "react";
+import { string } from "zod";
 
 import { Socials } from "../components/socials";
 
-const Home: NextPage = () => {
+const fetchArticles = async () => {
+  const headers = {
+    "content-type": "application/json",
+  };
+  const requestBody = {
+    query: `query {
+      user(username:"kasp9023") {
+         publication {
+          posts {
+            title
+            slug
+            dateAdded
+            brief
+          }
+        } 
+      }
+    }`,
+  };
+  const options = {
+    method: "POST",
+    headers,
+    body: JSON.stringify(requestBody),
+  };
+
+  const response = await fetch("https://api.hashnode.com", options);
+  const data: any = await response.json();
+
+  console.log("data", data);
+  return data;
+};
+
+const Home: NextPage = ({ posts }) => {
+  console.log("posts", posts);
   return (
     <>
       <Head>
@@ -51,5 +85,21 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context) {
+  const {
+    data: {
+      user: {
+        publication: { posts },
+      },
+    },
+  }: any = await fetchArticles();
+
+  return {
+    props: {
+      posts,
+    }, // will be passed to the page component as props
+  };
+}
 
 export default Home;
