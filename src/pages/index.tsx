@@ -1,8 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import { signIn, signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 
-import { api } from "../utils/api";
 import { Socials } from "../components/socials";
 
 const Home: NextPage = () => {
@@ -17,7 +16,9 @@ const Home: NextPage = () => {
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <div className="pt-32 pb-12 md:pt-40 md:pb-20">
             <div className="flex w-full flex-col items-center justify-center px-4">
-              <img
+              <Image
+                width="220"
+                height="220"
                 className="mb-4 h-64 w-64 rounded-full bg-slate-200 p-1 dark:bg-white"
                 alt="avatar"
                 src="/profile-picture.jpg"
@@ -28,17 +29,17 @@ const Home: NextPage = () => {
               >
                 Kasper Due
               </h1>
-              <h2 className="text-sm font-bold text-black dark:text-white md:text-base">
+              <h2 className="text-center text-sm font-bold text-black dark:text-white md:text-base">
                 👩‍💻 Senior Software Engineer and Aspiring Runner 🏃
               </h2>
               <div className="mx-auto max-w-3xl">
                 <p
-                  className="mb-8 mt-3 text-base text-gray-600  dark:text-white"
+                  className="mb-8 mt-3 text-center text-base text-gray-600  dark:text-white"
                   data-aos="zoom-y-out"
                   data-aos-delay="150"
                 >
                   I build tools and apps that makes life easier for people. I'm
-                  currently part of
+                  currently part of{" "}
                   <a href="https://www.bankingcircle.com">Banking Circle</a>
                 </p>
               </div>
