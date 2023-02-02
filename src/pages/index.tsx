@@ -18,7 +18,7 @@ const Home: NextPage = () => {
           <div className="pt-32 pb-12 md:pt-40 md:pb-20">
             <div className="flex w-full flex-col items-center justify-center px-4">
               <img
-                className="h-64 w-64 rounded-full bg-slate-200 p-2 dark:bg-white"
+                className="mb-4 h-64 w-64 rounded-full bg-slate-200 p-1 dark:bg-white"
                 alt="avatar"
                 src="/profile-picture.jpg"
               />
