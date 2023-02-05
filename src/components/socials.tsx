@@ -16,7 +16,7 @@ export function Social({
       href={href}
       rel="noreferrer"
       aria-label={alt}
-      className="rounded-md bg-transparent p-2 text-4xl text-gray-700 transition-all hover:bg-slate-200 dark:text-white dark:hover:bg-slate-600"
+      className="rounded-md bg-transparent p-2 text-2xl text-gray-700 transition-all hover:bg-slate-200 dark:text-white dark:hover:bg-slate-600"
     >
       {children}
     </a>
@@ -34,7 +34,7 @@ export function TextSocial({
       target="_blank"
       href={href}
       rel="noreferrer"
-      className="rounded-md bg-transparent p-2 text-2xl text-black transition-all hover:bg-slate-200 dark:text-white dark:hover:bg-slate-600"
+      className="rounded-md bg-transparent p-2 text-xl text-black transition-all hover:bg-slate-200 dark:text-white dark:hover:bg-slate-600"
     >
       {children}
     </a>
