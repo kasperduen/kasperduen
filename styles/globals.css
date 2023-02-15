@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.reactMarkdown {
+    width: 100%;
+}
+.reactMarkdown pre {
+    overflow: scroll;
+}
+
+.reactMarkdown h1 { @apply text-6xl; }
+.reactMarkdown h2 { @apply text-5xl; }
+.reactMarkdown h3 { @apply text-4xl; }
+.reactMarkdown h4 { @apply text-3xl; }
+.reactMarkdown h5 { @apply text-2xl; }
+.reactMarkdown h5 { @apply text-xl; }
+

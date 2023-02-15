@@ -1,3 +1,4 @@
+"use client";
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
 import { FaStrava } from "react-icons/fa";
 
