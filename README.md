@@ -5,7 +5,3 @@
 - 🌎 Globe-Trotter who loves to travel and visit new cultures
 - ☕ Big time coffee drinker
 - 🍺 Love for micro breweries
-
-### 🚀 Stack of choice
-
-Love building software with Next.js, tailwind CSS and Typescript. PostgresQL is my preferred DB and graphql is growing on me.
