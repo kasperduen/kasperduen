@@ -1,11 +1,11 @@
 // "use client";
 
 import { PostDisplay } from "../../src/components/post-display";
-import { PostsList } from "../../src/components/posts-list";
+import { PostsList as GoToBlogButton } from "../../src/components/posts-list";
 import { fetchPosts } from "../../src/http";
 
 export default async function Home() {
-  const allPosts = await fetchPosts(0);
+  const allPosts = await fetchPosts();
 
   return (
     <section className="md:ml-64">
@@ -13,7 +13,7 @@ export default async function Home() {
         {allPosts &&
           allPosts.map((post) => <PostDisplay key={post.slug} post={post} />)}
 
-        <PostsList />
+        <GoToBlogButton />
       </div>
     </section>
   );

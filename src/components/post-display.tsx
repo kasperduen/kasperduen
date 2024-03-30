@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Post } from "../http";
+import type { Post } from "../http";
 
 export function PostDisplay({ post }: { post: Post }) {
   return (

@@ -66,7 +66,7 @@ export function Socials() {
       >
         <AiFillInstagram />
       </Social>
-      <TextSocial href="https://blog.kasperdue.com/">Blog</TextSocial>
+      <TextSocial href="https://kasp9023.hashnode.dev/">Blog</TextSocial>
     </div>
   );
 }

@@ -11,10 +11,13 @@ export const Navbar = () => {
   const [user, setUser] = useState<GithubUserResponse>();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    fetchUser().then((res) => {
-      console.log("res", res);
-      setUser(res);
-    });
+    fetchUser()
+      .then((res) => {
+        setUser(res);
+      })
+      .catch((error) => {
+        console.error("Error fetching user:", error);
+      });
   }, []);
   return (
     <>

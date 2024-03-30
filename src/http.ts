@@ -1,11 +1,11 @@
-import { GithubUserResponse } from "./models/github-user-response";
+import type { GithubUserResponse } from "./models/github-user-response";
 
 export interface Post {
   title: string;
   slug: string;
-  dateAdded: string;
+  publishedAt: string;
   brief: string;
-  contentMarkdown: string;
+  content: { markdown: string };
   tags: {
     name: string;
   }[];
@@ -17,26 +17,33 @@ export type User = {
   publication: Publication;
 };
 
-export const fetchPosts = async (page: number): Promise<Post[]> => {
+export const fetchPosts = async (): Promise<Post[]> => {
   const headers = {
     "content-type": "application/json",
   };
   const requestBody = {
-    query: `query  fetchPosts($page: Int) {
-        user(username:"kasp9023") {
-           publication {
-            posts(page: $page) {
-              title
-              slug
-              dateAdded
-              brief
-            }
-          } 
-        }
-      }`,
-    variables: {
-      page,
-    },
+    query: `query Publication {
+      publication(host:"blog.kasperdue.com"){
+        posts(first: 20) {
+         edges {
+           node {
+             title
+             slug
+             publishedAt
+             brief
+             content {
+               markdown
+             }
+             tags {
+               name
+             }
+        
+           }
+         }
+       }
+     }
+   }
+   `,
   };
   const options = {
     method: "POST",
@@ -45,58 +52,16 @@ export const fetchPosts = async (page: number): Promise<Post[]> => {
   };
 
   try {
-    const response = await fetch("https://api.hashnode.com", options);
-    const data = (await response.json()) as { data: { user: User } };
+    const response = await fetch("https://gql.hashnode.com", options);
+    const data = (await response.json()) as {
+      data: { publication: { posts: { edges: { node: Post }[] } } };
+    };
 
-    const {
-      data: {
-        user: {
-          publication: { posts },
-        },
-      },
-    } = data;
+    const posts = data.data.publication.posts.edges.map((edge) => edge.node);
 
-    return posts || [];
-  } catch (ex) {
-    return [];
-  }
-};
-export const fetchPost = async (slug: string): Promise<Post> => {
-  const headers = {
-    "content-type": "application/json",
-  };
-  const requestBody = {
-    query: `
-    query fetchPost($slug: String!) {
-      post(slug: $slug hostname: "blog.kasperdue.com") {
-        title
-        contentMarkdown
-        tags {
-          name
-        }
-      }
-    }`,
-    variables: {
-      slug,
-    },
-  };
-  const options = {
-    method: "POST",
-    headers,
-    body: JSON.stringify(requestBody),
-  };
-
-  try {
-    const response = await fetch("https://api.hashnode.com", options);
-    const data = await response.json();
-    console.log("data here", data);
-
-    const {
-      data: { post },
-    } = data;
-
-    return post;
-  } catch (ex) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return posts ?? [];
+  } catch (ex: unknown) {
     return [];
   }
 };
