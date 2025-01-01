@@ -34,7 +34,7 @@ export const Navbar = () => {
               height="120"
               className="mb-4 h-40 w-40 rounded-full bg-slate-200 p-1 dark:bg-white"
               alt="avatar"
-              src={user?.avatar_url}
+              src={user?.avatar_url as string}
             />
             <h1
               className="leading-tighter text-md mb-4 font-extrabold tracking-tighter text-black dark:text-white md:text-2xl"
@@ -60,7 +60,7 @@ export const Navbar = () => {
             height="120"
             className="mb-4 h-40 w-40 rounded-full bg-slate-200 p-1 dark:bg-white"
             alt="avatar"
-            src={user?.avatar_url}
+            src={user?.avatar_url as string}
           />
           <h1
             className="leading-tighter text-md mb-4 font-extrabold tracking-tighter text-black dark:text-white md:text-2xl"
