@@ -1,18 +1,22 @@
-import { PostDisplay } from "../src/components/post-display";
-import { PostsList } from "../src/components/posts-list";
-import { fetchPosts } from "../src/http";
+import { Nav } from "@/components/nav";
+import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
+import { BlogSection } from "@/components/blog-section";
+import { Footer } from "@/components/footer";
+import { fetchPosts, fetchGithubUser } from "@/lib/data";
 
 export default async function Home() {
-  const allPosts = await fetchPosts();
+  const [posts, user] = await Promise.all([fetchPosts(), fetchGithubUser()]);
 
   return (
-    <section className="md:ml-64">
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-12 px-4 pt-6 sm:px-6 md:pb-12">
-        {allPosts &&
-          allPosts.map((post) => <PostDisplay key={post.slug} post={post} />)}
-
-        <PostsList />
-      </div>
-    </section>
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <About user={user} />
+        <BlogSection posts={posts} />
+      </main>
+      <Footer />
+    </>
   );
 }
