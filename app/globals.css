@@ -1,0 +1,200 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #000080;
+  --foreground: #ffff00;
+  --card: #c0c0c0;
+  --card-foreground: #000000;
+  --popover: #c0c0c0;
+  --popover-foreground: #000000;
+  --primary: #ff0000;
+  --primary-foreground: #ffffff;
+  --secondary: #008080;
+  --secondary-foreground: #ffffff;
+  --muted: #808080;
+  --muted-foreground: #c0c0c0;
+  --accent: #00ff00;
+  --accent-foreground: #000000;
+  --destructive: #ff0000;
+  --destructive-foreground: #ffffff;
+  --border: #808080;
+  --input: #ffffff;
+  --ring: #ffff00;
+  --radius: 0px;
+
+  --retro-navy: #000080;
+  --retro-yellow: #ffff00;
+  --retro-cyan: #00ffff;
+  --retro-lime: #00ff00;
+  --retro-red: #ff0000;
+  --retro-magenta: #ff00ff;
+  --retro-silver: #c0c0c0;
+  --retro-gray: #808080;
+  --retro-teal: #008080;
+  --retro-white: #ffffff;
+  --retro-black: #000000;
+}
+
+@theme inline {
+  --font-sans: 'Times New Roman', 'Times', serif;
+  --font-mono: 'Courier New', 'Courier', monospace;
+  --font-serif: 'Comic Sans MS', 'Comic Sans', cursive;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --color-retro-navy: var(--retro-navy);
+  --color-retro-yellow: var(--retro-yellow);
+  --color-retro-cyan: var(--retro-cyan);
+  --color-retro-lime: var(--retro-lime);
+  --color-retro-red: var(--retro-red);
+  --color-retro-magenta: var(--retro-magenta);
+  --color-retro-silver: var(--retro-silver);
+  --color-retro-gray: var(--retro-gray);
+  --color-retro-teal: var(--retro-teal);
+  --color-retro-white: var(--retro-white);
+  --color-retro-black: var(--retro-black);
+}
+
+/* Retro marquee animation */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes rainbow {
+  0% { color: #ff0000; }
+  16% { color: #ff8800; }
+  33% { color: #ffff00; }
+  50% { color: #00ff00; }
+  66% { color: #0000ff; }
+  83% { color: #ff00ff; }
+  100% { color: #ff0000; }
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { text-shadow: 0 0 4px currentColor; }
+  50% { text-shadow: 0 0 12px currentColor, 0 0 20px currentColor; }
+}
+
+.retro-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.retro-rainbow {
+  animation: rainbow 3s linear infinite;
+}
+
+.retro-scroll {
+  animation: scroll-left 15s linear infinite;
+}
+
+.retro-spin {
+  animation: spin-slow 3s linear infinite;
+}
+
+.retro-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Beveled border effect */
+.bevel-raised {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #ffffff #808080 #808080 #ffffff;
+}
+
+.bevel-sunken {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+/* Horizontal rule retro style */
+.retro-hr {
+  height: 4px;
+  background: linear-gradient(to right, #000080, #00ffff, #ff00ff, #ffff00, #00ffff, #000080);
+  border: none;
+}
+
+/* Star background tile */
+.star-bg {
+  background-image: url('/images/stars-bg.jpg');
+  background-repeat: repeat;
+}
+
+/* Table retro styling */
+.retro-table {
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+/* Link styles */
+a.retro-link {
+  color: #00ffff;
+  text-decoration: underline;
+}
+
+a.retro-link:visited {
+  color: #ff00ff;
+}
+
+a.retro-link:hover {
+  color: #ffff00;
+}
+
+/* Scrollbar retro */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #c0c0c0;
+  border: 1px solid #808080;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #808080;
+  border: 2px outset #c0c0c0;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
