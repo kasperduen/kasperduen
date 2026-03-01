@@ -74,7 +74,7 @@ export function CoolSection() {
           ))}
         </div>
         <pre className="bevel-sunken overflow-x-auto bg-retro-black p-4 text-center font-mono text-retro-lime">
-          {asciiArt[selectedAscii].art}
+          {asciiArt[selectedAscii]?.art}
         </pre>
       </div>
 
@@ -102,12 +102,11 @@ export function CoolSection() {
                 backgroundColor: color,
               }}
               onClick={() => {
-                const updated = [...colors]
-                updated[currentColorIdx] = {
-                  ...updated[currentColorIdx],
-                  value: color,
-                }
-                setColors(updated)
+                setColors((prev) =>
+                  prev.map((c, i) =>
+                    i === currentColorIdx ? { ...c, value: color } : c
+                  )
+                )
               }}
               aria-label={`Select color ${color}`}
             />
@@ -136,13 +135,13 @@ export function CoolSection() {
         <div
           className="bevel-sunken mt-3 p-4 text-center font-sans"
           style={{
-            backgroundColor: colors[0].value,
-            color: colors[1].value,
+            backgroundColor: colors[0]?.value,
+            color: colors[1]?.value,
           }}
         >
           {"This is a preview of your color choices!"}
           <br />
-          <span style={{ color: colors[2].value, textDecoration: "underline" }}>
+          <span style={{ color: colors[2]?.value, textDecoration: "underline" }}>
             {"This is what links would look like"}
           </span>
         </div>

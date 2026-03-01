@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { personal } from "../../data/personal";
 
 export function AboutSection() {
@@ -98,11 +99,11 @@ export function AboutSection() {
       <div className="flex flex-col items-center gap-2">
         <div className="retro-hr w-full" style={{ height: '4px' }} />
         <div className="flex items-center gap-2">
-          <img src="/images/email-icon.jpg" alt="Email icon" width={32} height={32} />
+          <Image src="/images/email-icon.jpg" alt="Email icon" width={32} height={32} />
           <a href={`mailto:${personal.email}`} className="retro-glow font-serif text-lg text-retro-cyan hover:underline">
             {"Email me at: "}{personal.email}
           </a>
-          <img src="/images/email-icon.jpg" alt="Email icon" width={32} height={32} />
+          <Image src="/images/email-icon.jpg" alt="Email icon" width={32} height={32} />
         </div>
       </div>
     </section>
