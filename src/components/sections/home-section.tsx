@@ -18,15 +18,14 @@ export function HomeSection() {
       <div className="flex flex-col items-center gap-4 md:flex-row md:items-start">
         {/* Profile area */}
         <div className="bevel-raised flex flex-col items-center gap-2 bg-retro-silver p-4">
-          <div
-            className="bevel-sunken flex items-center justify-center bg-retro-navy"
-            style={{ width: 150, height: 150 }}
-          >
-            <span className="text-center font-mono text-sm text-retro-cyan">
-              {"[Your Photo"}
-              <br />
-              {"Here]"}
-            </span>
+          <div className="bevel-sunken overflow-hidden" style={{ width: 150, height: 150 }}>
+            <Image
+              src="https://media.licdn.com/dms/image/v2/D4E03AQFr_ebigjclng/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1689619753870?e=1773878400&v=beta&t=o5GbR59BDCY7M2_e1cC9k4ZWj8qa8ROQ_-7pa-smPFI"
+              alt={personal.name}
+              width={150}
+              height={150}
+              className="h-full w-full object-cover"
+            />
           </div>
           <p className="font-mono text-xs text-retro-black">
             {"^ That's "}{personal.name}{"! ^"}

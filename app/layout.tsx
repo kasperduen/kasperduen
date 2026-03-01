@@ -1,7 +1,11 @@
 import "../styles/globals.css";
-import Head from "next/head";
-import { Navbar } from "../src/components/navbar";
 import { personal } from "../src/data/personal";
+
+export const metadata = {
+  title: personal.site.title,
+  description: personal.site.description,
+  icons: { icon: "/favicon.ico" },
+};
 
 export default function RootLayout({
   children,
@@ -10,15 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Head>
-          <title>{personal.site.title}</title>
-          <meta name="description" content={personal.site.description} />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <Navbar />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
