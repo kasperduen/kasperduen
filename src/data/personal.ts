@@ -7,9 +7,9 @@ export const personal = {
   /** Full name */
   name: "Kasper Due",
   /** Professional title */
-  title: "Senior Software Engineer",
+  title: "CTO at Løberlab",
   /** Short tagline (e.g. for navbar) */
-  tagline: "Aspiring Runner",
+  tagline: "Ultra runner",
   /** Location for display */
   location: "Copenhagen, Denmark",
   /** Contact - use mailto or link */
@@ -18,7 +18,7 @@ export const personal = {
   site: {
     title: "Kasper Due",
     description:
-      "Personal site and blog of Kasper Due — Senior Software Engineer. Writing about frontend, React, and building on the web.",
+      "Kasper Due — CTO at Løberlab, ultra runner. Building products, leading teams, and running long.",
     url: "https://kasperdue.com",
   },
   /** Social and external links */

@@ -1,11 +1,13 @@
-# 👋 Hello there!
+# 👋 Hi, I'm Kasper
 
-- 👨‍💻 Senior Software Engineer at [Banking Circle](https://www.bankingcircle.com).
-- 🏃 Aspiring Marathon runner with [2:53](https://www.strava.com/activities/2748854869#5812924733) PR
-- 🌎 Globe-Trotter who loves to travel and visit new cultures
-- ☕ Big time coffee drinker
-- 🍺 Love for micro breweries
+**CTO at [Løberlab](https://loberlab.com)** · **Ultra runner**
 
-### 🚀 Stack of choice
+I build products and teams by day and push my limits on the trails by night. Running long distances taught me that the best outcomes come from consistency, patience, and a willingness to go further than feels comfortable.
 
-Love building software with Next.js, tailwind CSS and Typescript. PostgresQL is my preferred DB and graphql is growing on me.
+- 🌍 **Globe-trotter** — I love exploring new places and cultures.
+- ☕ **Coffee** — Fuel for building and running.
+- 🍺 **Micro breweries** — For the finish-line moments.
+
+### 🚀 How I build
+
+I craft software with **Next.js**, **Tailwind CSS**, and **TypeScript**. **PostgreSQL** is my go-to database, and **GraphQL** is growing on me. I care about clean systems, strong teams, and shipping things that matter.
