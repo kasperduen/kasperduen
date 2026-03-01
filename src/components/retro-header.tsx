@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { personal } from "../data/personal"
 
 export function RetroHeader() {
   const [visitorCount, setVisitorCount] = useState(0)
@@ -21,7 +22,7 @@ export function RetroHeader() {
         className="retro-rainbow text-center font-serif text-4xl font-bold md:text-5xl"
         style={{ letterSpacing: '2px' }}
       >
-        {"~*~ Welcome to My Homepage ~*~"}
+        {"~*~ Welcome to "}{personal.name}{"'s Homepage ~*~"}
       </h1>
 
       {/* Subtitle */}

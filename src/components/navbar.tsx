@@ -5,6 +5,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { fetchUser } from "../http";
 import type { GithubUserResponse } from "../models/github-user-response";
 import { Socials } from "./socials";
+import { personal } from "../data/personal";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,8 @@ export const Navbar = () => {
         console.error("Error fetching user:", error);
       });
   }, []);
+  const displayName = user?.name ?? personal.name;
+  const displayBio = user?.bio ?? `${personal.title} · ${personal.tagline}`;
   return (
     <>
       {isOpen ? (
@@ -40,13 +43,13 @@ export const Navbar = () => {
               className="leading-tighter text-md mb-4 font-extrabold tracking-tighter text-black dark:text-white md:text-2xl"
               data-aos="zoom-y-out"
             >
-              Kasper Due
+              {displayName}
             </h1>
             <h3 className="mb-1 text-center text-sm text-black dark:text-white">
-              👨🏻‍💻 Senior Software Engineer 👨🏻‍💻
+              👨🏻‍💻 {personal.title} 👨🏻‍💻
             </h3>
             <h2 className="mb-4 text-center text-sm text-black dark:text-white">
-              🏃 Aspiring Runner 🏃
+              🏃 {personal.tagline} 🏃
             </h2>
             <Socials />
           </div>
@@ -66,11 +69,11 @@ export const Navbar = () => {
             className="leading-tighter text-md mb-4 font-extrabold tracking-tighter text-black dark:text-white md:text-2xl"
             data-aos="zoom-y-out"
           >
-            {user?.name}
+            {displayName}
           </h1>
 
           <h3 className="mb-1 text-center text-sm text-black dark:text-white">
-            <span dangerouslySetInnerHTML={{ __html: user?.bio || "" }}></span>
+            <span dangerouslySetInnerHTML={{ __html: displayBio }}></span>
           </h3>
 
           <Socials />
@@ -79,6 +82,7 @@ export const Navbar = () => {
 
       <nav className="w-100 flex h-12 justify-end bg-slate-200 md:hidden">
         <button
+          type="button"
           aria-label="Hamburger menu"
           className="mr-4 flex h-full w-12 items-center justify-center text-2xl"
           onClick={() => setIsOpen(!isOpen)}

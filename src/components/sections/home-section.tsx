@@ -1,6 +1,12 @@
 import Image from "next/image"
+import { personal } from "../../data/personal"
 
 export function HomeSection() {
+  const lastUpdated = new Date().toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
   return (
     <section className="flex flex-col items-center gap-6">
       <div className="bevel-raised bg-retro-silver p-4">
@@ -23,14 +29,14 @@ export function HomeSection() {
             </span>
           </div>
           <p className="font-mono text-xs text-retro-black">
-            {"^ That's me! ^"}
+            {"^ That's "}{personal.name}{"! ^"}
           </p>
         </div>
 
         {/* Welcome text */}
         <div className="bevel-sunken flex-1 bg-retro-navy p-4">
           <p className="mb-3 font-sans text-lg text-retro-yellow">
-            {"Howdy, stranger! Welcome to my little corner of cyberspace!"}
+            {"Howdy, stranger! Welcome to "}{personal.name}{"'s little corner of cyberspace!"}
           </p>
           <p className="mb-3 font-sans text-retro-white">
             {"This is my personal homepage where I share all the cool stuff I find "}
@@ -45,7 +51,7 @@ export function HomeSection() {
             {" before you leave!"}
           </p>
           <p className="font-sans text-retro-lime">
-            {"This page was last updated on: February 26, 2026"}
+            {"This page was last updated on: "}{lastUpdated}
           </p>
         </div>
       </div>

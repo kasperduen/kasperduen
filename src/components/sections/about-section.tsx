@@ -1,3 +1,5 @@
+import { personal } from "../../data/personal";
+
 export function AboutSection() {
   return (
     <section className="flex flex-col gap-6">
@@ -15,7 +17,7 @@ export function AboutSection() {
                 {"Name:"}
               </td>
               <td className="bevel-sunken bg-retro-black px-3 py-2 text-retro-cyan">
-                {"kasperduen"}
+                {personal.name}
               </td>
             </tr>
             <tr>
@@ -23,7 +25,7 @@ export function AboutSection() {
                 {"Location:"}
               </td>
               <td className="bevel-sunken bg-retro-black px-3 py-2 text-retro-cyan">
-                {"Planet Earth, The Internet"}
+                {personal.location}
               </td>
             </tr>
             <tr>
@@ -31,7 +33,7 @@ export function AboutSection() {
                 {"Occupation:"}
               </td>
               <td className="bevel-sunken bg-retro-black px-3 py-2 text-retro-cyan">
-                {"Webmaster / Cyber Surfer"}
+                {personal.title}
               </td>
             </tr>
             <tr>
@@ -97,9 +99,9 @@ export function AboutSection() {
         <div className="retro-hr w-full" style={{ height: '4px' }} />
         <div className="flex items-center gap-2">
           <img src="/images/email-icon.jpg" alt="Email icon" width={32} height={32} />
-          <span className="retro-glow font-serif text-lg text-retro-cyan">
-            {"Email me at: webmaster@geocities.com"}
-          </span>
+          <a href={`mailto:${personal.email}`} className="retro-glow font-serif text-lg text-retro-cyan hover:underline">
+            {"Email me at: "}{personal.email}
+          </a>
           <img src="/images/email-icon.jpg" alt="Email icon" width={32} height={32} />
         </div>
       </div>

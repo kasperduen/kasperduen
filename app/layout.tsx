@@ -1,8 +1,7 @@
-import { RxHamburgerMenu } from "react-icons/rx";
-import { Socials } from "../src/components/socials";
 import "../styles/globals.css";
 import Head from "next/head";
 import { Navbar } from "../src/components/navbar";
+import { personal } from "../src/data/personal";
 
 export default function RootLayout({
   children,
@@ -13,9 +12,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Head>
-          <title>Create T3 App</title>
-          <meta name="description" content="" />
-          <title>Welcome to my site!</title>
+          <title>{personal.site.title}</title>
+          <meta name="description" content={personal.site.description} />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Navbar />

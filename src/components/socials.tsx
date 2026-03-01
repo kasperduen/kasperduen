@@ -1,6 +1,7 @@
 "use client";
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
 import { FaStrava } from "react-icons/fa";
+import { personal } from "../data/personal";
 
 export function Social({
   children,
@@ -45,28 +46,19 @@ export function TextSocial({
 export function Socials() {
   return (
     <div className="flex">
-      <Social href="https://github.com/kasperduen" alt="github account">
+      <Social href={personal.links.github} alt="github account">
         <AiFillGithub />
       </Social>
-      <Social
-        href="https://www.strava.com/athletes/25682473"
-        alt="strava account"
-      >
+      <Social href={personal.links.strava} alt="strava account">
         <FaStrava />
       </Social>
-      <Social
-        href="https://www.linkedin.com/in/kasperdue/"
-        alt="linkedin account"
-      >
+      <Social href={personal.links.linkedin} alt="linkedin account">
         <AiFillLinkedin />
       </Social>
-      <Social
-        href="https://www.instagram.com/kaspervdue/"
-        alt="instagram account"
-      >
+      <Social href={personal.links.instagram} alt="instagram account">
         <AiFillInstagram />
       </Social>
-      <TextSocial href="https://kasp9023.hashnode.dev/">Blog</TextSocial>
+      <TextSocial href={personal.links.blog}>Blog</TextSocial>
     </div>
   );
 }
