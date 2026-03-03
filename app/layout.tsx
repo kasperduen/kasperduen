@@ -1,24 +1,27 @@
 import "../styles/globals.css";
-import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import { personal } from "../src/data/personal";
 
 export const metadata = {
-  title: personal.site.title,
-  description: personal.site.description,
-  icons: { icon: "/favicon.ico" },
+	title: personal.site.title,
+	description: personal.site.description,
+	icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <body>
-        {children}
-        <Analytics />
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en">
+			<body>
+				{children}
+				<Script
+					src="/_vercel/insights/script.js"
+					strategy="afterInteractive"
+				/>
+			</body>
+		</html>
+	);
 }
